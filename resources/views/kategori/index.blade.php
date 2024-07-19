@@ -25,6 +25,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Total Product</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -33,6 +34,7 @@
                             <tr>
                                 <th scope="row">{{ $data->firstItem() + $loop->iteration - 1 }}</th>
                                 <td>{{ $item->nama }}</td>
+                                <td>{{ $item->product()->count() }}</td>
                                 <td width="140px">
                                     @include('kategori._shared.actions')
                                 </td>

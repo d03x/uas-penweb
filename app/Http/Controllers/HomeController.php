@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 class HomeController extends Controller
@@ -23,9 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'total_product' => 0,
-            'total_kategori' => 0,
-            'total_users' => 0,
+            'total_product' => Product::count(),
+            'total_kategori' => Kategori::count(),
+            'total_users' => User::count(),
         ]);
     }
 }

@@ -3,6 +3,8 @@
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UploadGcsController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('login'));
 });
 
 
@@ -33,7 +35,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('delete/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
         Route::get('product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
         Route::put('product/{product}', [ProductController::class, 'update'])->name('product.update');
-
     });
     Route::prefix('kategori')->group(function () {
         Route::get('', [KategoriController::class, 'index'])->name('kategori');
@@ -42,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('delete/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
         Route::put('update/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
     });
+    Route::middleware(RoleMiddleware::class)->resource('users', UserController::class);
 });
 
 Auth::routes();

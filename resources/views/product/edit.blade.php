@@ -3,7 +3,7 @@
 ])
 
 @section('main')
-@dump($errors)
+
 <div class="card card-secondary">
     <div class="card-header">
         <div class="card-title">Edit Data</div>

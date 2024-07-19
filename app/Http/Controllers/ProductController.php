@@ -20,7 +20,10 @@ class ProductController extends Controller
         ]);
     }
     public function destroy(Request $request, Product $product) {
-        //delete here
+        $product->delete();
+       return redirect(route('product'))->withErrors([
+        'success' => "Data berhasil di hapus!"
+       ]);
     }
 
     public function store(Request $request){

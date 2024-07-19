@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
-    <div class="card shadow border-0 col-md-4 mx-auto mt-4">
+    <div class="card border-0 col-md-4 mx-auto mt-4">
         <div class="card-header">
             <div class="card-title">Login</div>
         </div>

@@ -8,20 +8,20 @@
         @include('_shared.aside') <!--end::Sidebar--> <!--begin::App Main-->
         <main class="app-main"> <!--begin::App Content Header-->
             @isset($pageName)
-            <div class="app-content-header"> <!--begin::Container-->
-                <div class="container-fluid"> <!--begin::Row-->
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h3 class="mb-0">{{ $pageName ?? '' }}</h3>
-                        </div>
-                        
-                    </div> <!--end::Row-->
-                </div> <!--end::Container-->
-            </div>
+                <div class="app-content-header"> <!--begin::Container-->
+                    <div class="container-fluid"> <!--begin::Row-->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 class="mb-0">{{ $pageName ?? '' }}</h3>
+                            </div>
+
+                        </div> <!--end::Row-->
+                    </div> <!--end::Container-->
+                </div>
             @endisset <!--end::App Content Header--> <!--begin::App Content-->
             <div class="app-content"> <!--begin::Container-->
                 <div class="container-fluid">
-                @yield('main')    
+                    @yield('main')
                 </div> <!--end::Container-->
             </div> <!--end::App Content-->
         </main> <!--end::App Main--> <!--begin::Footer-->
@@ -29,7 +29,7 @@
             <div class="float-end d-none d-sm-inline">Anything you want</div> <!--end::To the end-->
             <!--begin::Copyright--> <strong>
                 Copyright &copy; 2014-2024&nbsp;
-                <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+                <a href="https://SISTEM MANAJEMEN PRODUK" class="text-decoration-none">SISTEM MANAJEMEN PRODUK</a>.
             </strong>
             All rights reserved.
             <!--end::Copyright-->
@@ -44,6 +44,15 @@
         integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="{{ asset('assets/js/adminlte.js') }}"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
+        window.onload = function() {
+            document.querySelector('.logout-link').addEventListener('click', function(event) {
+                event.preventDefault();
+                if (confirm('Apakah anda ingin logout?')) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+
         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
         const Default = {
             scrollbarTheme: "os-theme-light",

@@ -26,7 +26,6 @@
                                 <th scope="col">Harga</th>
                                 <th scope="col">Stok</th>
                                 <th scope="col">Warna</th>
-                                <th scope="col">Cover</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -34,16 +33,14 @@
                             @foreach ($data as $item)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $item->kode_produk ?? '-' }}</td>
+                                <td>{{ $item->kode_produk ?? null ? $item->kode_produk : '-' }}</td>
                                 <td>{{ $item->nama  }}</td>
                                 
                                 <td>{{ $item->kategori->nama  }}</td>
                                 <td>Rp.{{ number_format($item->harga,2,',','.') }}</td>
                                 <td>{{ $item->stok }}</td>
                                 <td>{{ $item->warna }}</td>
-                                <td>
-                                    <img width="100px" class="img-thumbnail" src="{{ asset('storage/'.$item->gambar) }}" alt="andri">
-                                </td>
+                               
                                 <td width="200px">
                                    @include('product._shared.actions')
                                 </td>
