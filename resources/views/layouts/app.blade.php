@@ -4,6 +4,7 @@
     @include("_shared.head")
     @yield('head')
     @stack('head')
+    <link a rel="stylesheet" a href="{{ asset('assets/css/custom.css') }}"/>
 </head>
 <body @class($class ?? '')>
     @yield('content')
@@ -11,3 +12,4 @@
     @stack('footer')
 </body>
 </html>
+
